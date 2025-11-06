@@ -16,19 +16,20 @@ import matplotlib.pyplot as plt
 # Film1 nF – 10 µF Audio, precision circuits
 # Supercapacitors 0.1 F – 5000 F Energy storage, backup power
 
-# Spenning over kondensator
+# Spenning over kondensator Utladning
 
-U = 10  # V
-R = 10**6  # 1Mohm
-C = 10**-6  # 1uF
-t = np.linspace(0, 10, 1000)  # s
+#### KAN ENDRE Variabel ###########
+U = 10  # [V]
+R = 10**6  # 1 [Mohm]
+C = 10**-6  # 1 [uF]
+tid = 10  # [s]
+###################################
 
-
+t = np.linspace(0, tid, 1000)  # s
 Uc = U * np.exp(-t / (R * C))
 
 
 fig, axs = plt.subplots(3, 1)
-
 
 axs[0].plot(t, Uc)
 axs[0].set_xlabel("Tid [s]")
@@ -36,7 +37,6 @@ axs[0].set_ylabel("Spenning [V]")
 axs[0].set_title("Spenning over kondensator $U_C$")
 
 Ic = (U / R) * np.exp(-t / (R * C))
-
 Ur = Ic * R
 
 axs[1].plot(t, Ur)

@@ -18,14 +18,15 @@ import matplotlib.pyplot as plt
 
 # Spenning over kondensator
 
+#### KAN ENDRE Variabel ###########
 U = 10  # V
 R = 10**6  # 1Mohm
 C = 10**-6  # 1uF
-t = np.linspace(0, 10, 1000)  # s
+tid = 10
+###################################
 
-
+t = np.linspace(0, tid, 1000)  # s
 Uc = U * (1 - np.exp(-t / (R * C)))
-
 
 fig, axs = plt.subplots(3, 1)
 
@@ -36,7 +37,6 @@ axs[0].set_ylabel("Spenning [V]")
 axs[0].set_title("Spenning over kondensator $U_C$")
 
 Ur = U - Uc
-
 Ir = Ur / R
 
 axs[1].plot(t, Ur)
